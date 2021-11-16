@@ -1,0 +1,60 @@
+<HTML>
+
+<HEAD>
+  <meta charset="utf-8">
+  <style type="text/css">
+    body {
+      font-size: 100px;
+      text-align: center;
+    }
+
+    input {
+      width: 350px;
+      height: 140px;
+      font-size: 80px;
+    }
+  </style>
+  <TITLE>Class3LuckyBaby</TITLE>
+  <SCRIPT LANGUAGE="JavaScript">
+    var names = [
+      "孟星辰", "王瀚乔", "姚逸飞", "唐轶瀚", "许昌平", "邹怡翔", "", "黄烨斐", "杜浩瑞", "官熙", "赵文瑞", "蔡毅", "张圣鸣", "刘为", "唐一天", "刘子豪", "罗培元", "王玺瑞", "缪顺鑫", "牟洪熹", "杨海瑞", "陈宣翰", "张浩博", "刘子涵", "李时君", "董智鸣", "张羽程", "魏俣行", "兰陈凯", "易昊昀", "余亦涵", "叶思宇", "汤巧玲", "田园", "杨茜", "陈柔嘉", "何耀彤", "陈怡帆", "周妙", "李箐倩", "马玺光博", "向思羽", "石欣月", "连彧珩"
+    ];
+    var name;
+    var index = -1;
+    var time;
+
+    function begin() {
+      document.getElementById("btnBegin").disabled = true;
+      chouqian();
+    }
+
+    function chouqian() {
+      if (names.length > 0) {
+        index = Math.floor(Math.random() * 2000 % names.length);
+        name = names[index];
+        document.getElementById("result").innerHTML = name;
+        time = window.setTimeout(chouqian, 2);
+      } else {
+        document.getElementById("result").innerHTML = "~结束~";
+      }
+    }
+
+    function end() {
+      window.clearTimeout(time);
+      document.getElementById("btnBegin").disabled = false;
+      names.splice(index, 1);
+    }
+  </SCRIPT>
+</HEAD>
+
+<BODY>
+
+  <div>
+    <h3>抽签顺序</h3>
+    <h1 id="result" style="color:blue;">^_^</h1>
+    <INPUT TYPE="button" VALUE="开始" id="btnBegin" ONCLICK="begin();">
+    <INPUT TYPE="button" VALUE="结束" id="btnEnd" ONCLICK="end();">
+  </div>
+</BODY>
+
+</HTML>
